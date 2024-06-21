@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output Benchmark.Benchmarks.SmallCollection_Int32Key_Get-20240620-221439</title>
+
+<style type="text/css">
+    table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+    td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: left; }
+    tr { background-color: #fff; border-top: 1px solid #ccc; }
+    tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="9">SmallCollection_Int32Key_Get.Dictionary</th></tr>
+<tr>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CC9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3024B58]
+test      rax,rax
+je        short 00007FFCC2CC9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CC9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC30FDF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CC9DFD
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CC9D8C
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CC9E41
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       near ptr 00007FFCC2CC9DFD
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CC9E05
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CC9E05
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B504F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CC9E41
+mov       edx,edx
+mov       edx,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       edx
+mov       r13d,[rbx+8]
+cmp       r13d,edx
+jbe       short 00007FFCC2CC9DFD
+mov       edx,edx
+lea       rax,[rdx+rdx*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CC9E18
+mov       edx,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jb        short 00007FFCC2CC9E3A
+jmp       short 00007FFCC2CC9DD4
+xor       r12d,r12d
+jmp       near ptr 00007FFCC2CC9D78
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CC9D4A
+jmp       short 00007FFCC2CC9E3A
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B50500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CC9D74
+jmp       short 00007FFCC2CC9DEF
+call      qword ptr [7FFCC2E4F000]
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CD9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3034B58]
+test      rax,rax
+je        short 00007FFCC2CD9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CD9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC310DF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CD9D88
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CD9D8D
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CD9E38
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       short 00007FFCC2CD9D88
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CD9E03
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CD9E03
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+xor       r12d,r12d
+jmp       short 00007FFCC2CD9D74
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B604F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CD9E38
+mov       edx,edx
+mov       eax,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       eax
+mov       r13d,[rbx+8]
+cmp       r13d,eax
+jbe       short 00007FFCC2CD9D88
+mov       eax,eax
+lea       rax,[rax+rax*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CD9E16
+mov       eax,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jae       short 00007FFCC2CD9DD5
+call      qword ptr [7FFCC2E5F000]
+int       3
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CD9D4A
+jmp       short 00007FFCC2CD9DFC
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B60500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CD9D70
+jmp       short 00007FFCC2CD9DF0
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CD9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3034B58]
+test      rax,rax
+je        short 00007FFCC2CD9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CD9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC310DF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CD9D88
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CD9D8D
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CD9E38
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       short 00007FFCC2CD9D88
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CD9E03
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CD9E03
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+xor       r12d,r12d
+jmp       short 00007FFCC2CD9D74
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B604F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CD9E38
+mov       edx,edx
+mov       eax,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       eax
+mov       r13d,[rbx+8]
+cmp       r13d,eax
+jbe       short 00007FFCC2CD9D88
+mov       eax,eax
+lea       rax,[rax+rax*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CD9E16
+mov       eax,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jae       short 00007FFCC2CD9DD5
+call      qword ptr [7FFCC2E5F000]
+int       3
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CD9D4A
+jmp       short 00007FFCC2CD9DFC
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B60500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CD9D70
+jmp       short 00007FFCC2CD9DF0
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CD9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3034B58]
+test      rax,rax
+je        short 00007FFCC2CD9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CD9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC310DF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CD9DFD
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CD9D8C
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CD9E41
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       near ptr 00007FFCC2CD9DFD
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CD9E05
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CD9E05
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B604F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CD9E41
+mov       edx,edx
+mov       edx,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       edx
+mov       r13d,[rbx+8]
+cmp       r13d,edx
+jbe       short 00007FFCC2CD9DFD
+mov       edx,edx
+lea       rax,[rdx+rdx*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CD9E18
+mov       edx,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jb        short 00007FFCC2CD9E3A
+jmp       short 00007FFCC2CD9DD4
+xor       r12d,r12d
+jmp       near ptr 00007FFCC2CD9D78
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CD9D4A
+jmp       short 00007FFCC2CD9E3A
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B60500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CD9D74
+jmp       short 00007FFCC2CD9DEF
+call      qword ptr [7FFCC2E5F000]
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CC9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3024B58]
+test      rax,rax
+je        short 00007FFCC2CC9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CC9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC30FE058]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CC9DFD
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CC9D8C
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CC9E41
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       near ptr 00007FFCC2CC9DFD
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CC9E05
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CC9E05
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B504F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CC9E41
+mov       edx,edx
+mov       edx,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       edx
+mov       r13d,[rbx+8]
+cmp       r13d,edx
+jbe       short 00007FFCC2CC9DFD
+mov       edx,edx
+lea       rax,[rdx+rdx*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CC9E18
+mov       edx,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jb        short 00007FFCC2CC9E3A
+jmp       short 00007FFCC2CC9DD4
+xor       r12d,r12d
+jmp       near ptr 00007FFCC2CC9D78
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CC9D4A
+jmp       short 00007FFCC2CC9E3A
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B50500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CC9D74
+jmp       short 00007FFCC2CC9DEF
+call      qword ptr [7FFCC2E4F000]
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CF9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3054B58]
+test      rax,rax
+je        short 00007FFCC2CF9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CF9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC312DF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CF9D88
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CF9D8D
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CF9E38
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       short 00007FFCC2CF9D88
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CF9E03
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CF9E03
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+xor       r12d,r12d
+jmp       short 00007FFCC2CF9D74
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B804F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CF9E38
+mov       edx,edx
+mov       eax,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       eax
+mov       r13d,[rbx+8]
+cmp       r13d,eax
+jbe       short 00007FFCC2CF9D88
+mov       eax,eax
+lea       rax,[rax+rax*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CF9E16
+mov       eax,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jae       short 00007FFCC2CF9DD5
+call      qword ptr [7FFCC2E7F000]
+int       3
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CF9D4A
+jmp       short 00007FFCC2CF9DFC
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B80500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CF9D70
+jmp       short 00007FFCC2CF9DF0
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CF9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3054B58]
+test      rax,rax
+je        short 00007FFCC2CF9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CF9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC312DF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CF9DFD
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CF9D8C
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CF9E41
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       near ptr 00007FFCC2CF9DFD
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CF9E05
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CF9E05
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B804F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CF9E41
+mov       edx,edx
+mov       edx,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       edx
+mov       r13d,[rbx+8]
+cmp       r13d,edx
+jbe       short 00007FFCC2CF9DFD
+mov       edx,edx
+lea       rax,[rdx+rdx*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CF9E18
+mov       edx,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jb        short 00007FFCC2CF9E3A
+jmp       short 00007FFCC2CF9DD4
+xor       r12d,r12d
+jmp       near ptr 00007FFCC2CF9D78
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CF9D4A
+jmp       short 00007FFCC2CF9E3A
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B80500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CF9D74
+jmp       short 00007FFCC2CF9DEF
+call      qword ptr [7FFCC2E7F000]
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2D09EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3064B58]
+test      rax,rax
+je        short 00007FFCC2D09EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2D09ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC313E058]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2D09DFD
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2D09D8C
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2D09E41
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       near ptr 00007FFCC2D09DFD
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2D09E05
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2D09E05
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B904F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2D09E41
+mov       edx,edx
+mov       edx,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       edx
+mov       r13d,[rbx+8]
+cmp       r13d,edx
+jbe       short 00007FFCC2D09DFD
+mov       edx,edx
+lea       rax,[rdx+rdx*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2D09E18
+mov       edx,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jb        short 00007FFCC2D09E3A
+jmp       short 00007FFCC2D09DD4
+xor       r12d,r12d
+jmp       near ptr 00007FFCC2D09D78
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2D09D4A
+jmp       short 00007FFCC2D09E3A
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B90500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2D09D74
+jmp       short 00007FFCC2D09DEF
+call      qword ptr [7FFCC2E8F000]
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.Dictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _dictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       short 00007FFCC2CC9EF4
+mov       rcx,[rbx+8]
+cmp       [rcx],cl
+mov       edx,edi
+call      qword ptr [7FFCC3024B58]
+test      rax,rax
+je        short 00007FFCC2CC9EFE
+mov       rax,[rax]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CC9ED4
+mov       eax,esi
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       ecx,edi
+call      qword ptr [7FFCC30FDF68]
+int       3
+
+System.Collections.Generic.Dictionary`2[[System.Int32, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].FindValue(Int32)
+push      r15
+push      r14
+push      r13
+push      r12
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+mov       esi,edx
+mov       rcx,[rbx+8]
+test      rcx,rcx
+je        near ptr 00007FFCC2CC9D88
+mov       rdi,[rbx+18]
+test      rdi,rdi
+jne       near ptr 00007FFCC2CC9D8D
+mov       eax,esi
+mov       edx,eax
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       r11d,[rcx+8]
+mov       r8d,r11d
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,r11d
+jae       near ptr 00007FFCC2CC9E38
+mov       edx,edx
+mov       ebp,[rcx+rdx*4+10]
+mov       r14,[rbx+10]
+xor       r15d,r15d
+dec       ebp
+mov       r13d,[r14+8]
+cmp       r13d,ebp
+jbe       short 00007FFCC2CC9D88
+mov       ecx,ebp
+lea       rcx,[rcx+rcx*2]
+lea       r12,[r14+rcx*8+10]
+cmp       [r12+8],esi
+jne       near ptr 00007FFCC2CC9E03
+cmp       [r12+10],eax
+jne       near ptr 00007FFCC2CC9E03
+cmp       [r12],r12b
+mov       rax,r12
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r12
+pop       r13
+pop       r14
+pop       r15
+ret
+xor       r12d,r12d
+jmp       short 00007FFCC2CC9D74
+mov       rcx,rdi
+mov       edx,esi
+mov       r11,7FFCC2B504F8
+call      qword ptr [r11]
+mov       r14d,eax
+mov       rax,[rbx+8]
+mov       edx,r14d
+imul      rdx,[rbx+30]
+shr       rdx,20
+inc       rdx
+mov       ecx,[rax+8]
+mov       r8d,ecx
+imul      rdx,r8
+shr       rdx,20
+cmp       edx,ecx
+jae       short 00007FFCC2CC9E38
+mov       edx,edx
+mov       eax,[rax+rdx*4+10]
+mov       rbx,[rbx+10]
+xor       ebp,ebp
+dec       eax
+mov       r13d,[rbx+8]
+cmp       r13d,eax
+jbe       short 00007FFCC2CC9D88
+mov       eax,eax
+lea       rax,[rax+rax*2]
+lea       r12,[rbx+rax*8+10]
+cmp       [r12+8],r14d
+je        short 00007FFCC2CC9E16
+mov       eax,[r12+0C]
+inc       ebp
+cmp       r13d,ebp
+jae       short 00007FFCC2CC9DD5
+call      qword ptr [7FFCC2E4F000]
+int       3
+mov       ebp,[r12+0C]
+inc       r15d
+cmp       r13d,r15d
+jae       near ptr 00007FFCC2CC9D4A
+jmp       short 00007FFCC2CC9DFC
+mov       edx,[r12+10]
+mov       rcx,rdi
+mov       r8d,esi
+mov       r11,7FFCC2B50500
+call      qword ptr [r11]
+test      eax,eax
+jne       near ptr 00007FFCC2CC9D70
+jmp       short 00007FFCC2CC9DF0
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th colspan="9">SmallCollection_Int32Key_Get.FrozenDictionary</th></tr>
+<tr>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+<th>.NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CCA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CCA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CCA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CCA251
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CCA251
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CCA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CCA238
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CCA251
+jmp       short 00007FFCC2CCA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CCA230
+xor       r11d,r11d
+jmp       short 00007FFCC2CCA202
+test      rbp,rbp
+je        short 00007FFCC2CCA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CCA1B9
+jmp       short 00007FFCC2CCA255
+mov       r11d,1
+jmp       short 00007FFCC2CCA202
+test      r11d,r11d
+jne       short 00007FFCC2CCA251
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CCA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CCA21B
+xor       ebp,ebp
+jmp       short 00007FFCC2CCA21B
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3027360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CCA21B
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2D0A255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2D0A267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2D0A1DD
+cmp       eax,edx
+jg        short 00007FFCC2D0A251
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2D0A251
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2D0A211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2D0A238
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2D0A251
+jmp       short 00007FFCC2D0A1ED
+cmp       eax,r9d
+jg        short 00007FFCC2D0A230
+xor       r11d,r11d
+jmp       short 00007FFCC2D0A202
+test      rbp,rbp
+je        short 00007FFCC2D0A260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2D0A1B9
+jmp       short 00007FFCC2D0A255
+mov       r11d,1
+jmp       short 00007FFCC2D0A202
+test      r11d,r11d
+jne       short 00007FFCC2D0A251
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2D0A278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2D0A21B
+xor       ebp,ebp
+jmp       short 00007FFCC2D0A21B
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3067360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2D0A21B
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CCA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CCA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CCA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CCA251
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CCA251
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CCA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CCA238
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CCA251
+jmp       short 00007FFCC2CCA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CCA230
+xor       r11d,r11d
+jmp       short 00007FFCC2CCA202
+test      rbp,rbp
+je        short 00007FFCC2CCA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CCA1B9
+jmp       short 00007FFCC2CCA255
+mov       r11d,1
+jmp       short 00007FFCC2CCA202
+test      r11d,r11d
+jne       short 00007FFCC2CCA251
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CCA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CCA21B
+xor       ebp,ebp
+jmp       short 00007FFCC2CCA21B
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3027360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CCA21B
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CFA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CFA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CFA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CFA23C
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CFA23C
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CFA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CFA21B
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CFA23C
+jmp       short 00007FFCC2CFA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CFA234
+xor       r11d,r11d
+jmp       short 00007FFCC2CFA202
+test      r11d,r11d
+jne       short 00007FFCC2CFA23C
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CFA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CFA23E
+mov       r11d,1
+jmp       short 00007FFCC2CFA202
+xor       ebp,ebp
+test      rbp,rbp
+je        short 00007FFCC2CFA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        near ptr 00007FFCC2CFA1B9
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3057360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CFA23E
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CDA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CDA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CDA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CDA23C
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CDA23C
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CDA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CDA21B
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CDA23C
+jmp       short 00007FFCC2CDA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CDA234
+xor       r11d,r11d
+jmp       short 00007FFCC2CDA202
+test      r11d,r11d
+jne       short 00007FFCC2CDA23C
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CDA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CDA23E
+mov       r11d,1
+jmp       short 00007FFCC2CDA202
+xor       ebp,ebp
+test      rbp,rbp
+je        short 00007FFCC2CDA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        near ptr 00007FFCC2CDA1B9
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3037360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CDA23E
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CFA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CFA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CFA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CFA23C
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CFA23C
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CFA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CFA21B
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CFA23C
+jmp       short 00007FFCC2CFA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CFA234
+xor       r11d,r11d
+jmp       short 00007FFCC2CFA202
+test      r11d,r11d
+jne       short 00007FFCC2CFA23C
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CFA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CFA23E
+mov       r11d,1
+jmp       short 00007FFCC2CFA202
+xor       ebp,ebp
+test      rbp,rbp
+je        short 00007FFCC2CFA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        near ptr 00007FFCC2CFA1B9
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3057360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CFA23E
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CDA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CDA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CDA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CDA23C
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CDA23C
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CDA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CDA21B
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CDA23C
+jmp       short 00007FFCC2CDA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CDA234
+xor       r11d,r11d
+jmp       short 00007FFCC2CDA202
+test      r11d,r11d
+jne       short 00007FFCC2CDA23C
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CDA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CDA23E
+mov       r11d,1
+jmp       short 00007FFCC2CDA202
+xor       ebp,ebp
+test      rbp,rbp
+je        short 00007FFCC2CDA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        near ptr 00007FFCC2CDA1B9
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3037360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CDA23E
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CFA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CFA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CFA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CFA23C
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CFA23C
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CFA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CFA21B
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CFA23C
+jmp       short 00007FFCC2CFA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CFA234
+xor       r11d,r11d
+jmp       short 00007FFCC2CFA202
+test      r11d,r11d
+jne       short 00007FFCC2CFA23C
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CFA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CFA23E
+mov       r11d,1
+jmp       short 00007FFCC2CFA202
+xor       ebp,ebp
+test      rbp,rbp
+je        short 00007FFCC2CFA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        near ptr 00007FFCC2CFA1B9
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3057360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CFA23E
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+Benchmark.Benchmarks.SmallCollection_Int32Key_Get.FrozenDictionary()
+        var sum = 0;
+        ^^^^^^^^^^^^
+        for (int i = 0; i < DictionarySize; i++)
+             ^^^^^^^^^
+            sum += _frozenDictionary[i].Sum;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        return sum;
+        ^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rbx,rcx
+xor       esi,esi
+xor       edi,edi
+cmp       dword ptr [rbx+18],0
+jle       near ptr 00007FFCC2CFA255
+mov       rcx,[rbx+10]
+mov       rax,offset MT_System.Collections.Frozen.SmallValueTypeComparableFrozenDictionary`2[[System.Int32, System.Private.CoreLib],[Benchmark.Benchmarks.SmallCollection_Int32Key_Get+MyClass, Benchmark]]
+cmp       [rcx],rax
+jne       near ptr 00007FFCC2CFA267
+mov       eax,edi
+mov       edx,[rcx+20]
+cmp       eax,edx
+jl        short 00007FFCC2CFA1DD
+cmp       eax,edx
+jg        short 00007FFCC2CFA251
+mov       rdx,[rcx+10]
+xor       r8d,r8d
+mov       r10d,[rdx+8]
+test      r10d,r10d
+jle       short 00007FFCC2CFA251
+mov       eax,edi
+mov       r9d,r8d
+mov       r9d,[rdx+r9*4+10]
+cmp       eax,r9d
+jge       short 00007FFCC2CFA211
+mov       r11d,0FFFFFFFF
+test      r11d,r11d
+jle       short 00007FFCC2CFA238
+inc       r8d
+cmp       r10d,r8d
+jle       short 00007FFCC2CFA251
+jmp       short 00007FFCC2CFA1ED
+cmp       eax,r9d
+jg        short 00007FFCC2CFA230
+xor       r11d,r11d
+jmp       short 00007FFCC2CFA202
+test      rbp,rbp
+je        short 00007FFCC2CFA260
+mov       rax,[rbp]
+add       esi,[rax+0C]
+inc       edi
+cmp       edi,[rbx+18]
+jl        short 00007FFCC2CFA1B9
+jmp       short 00007FFCC2CFA255
+mov       r11d,1
+jmp       short 00007FFCC2CFA202
+test      r11d,r11d
+jne       short 00007FFCC2CFA251
+mov       rax,[rcx+18]
+cmp       r8d,[rax+8]
+jae       short 00007FFCC2CFA278
+mov       ecx,r8d
+lea       rbp,[rax+rcx*8+10]
+jmp       short 00007FFCC2CFA21B
+xor       ebp,ebp
+jmp       short 00007FFCC2CFA21B
+mov       eax,esi
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+call      qword ptr [7FFCC3057360]
+int       3
+mov       edx,edi
+mov       rax,[rcx]
+mov       rax,[rax+50]
+call      qword ptr [rax+38]
+mov       rbp,rax
+jmp       short 00007FFCC2CFA21B
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
