@@ -7,10 +7,10 @@ namespace Benchmark.Benchmarks;
 [CategoriesColumn]
 [MemoryDiagnoser]
 // [DisassemblyDiagnoser(printSource: true, maxDepth: 2, exportCombinedDisassemblyReport: true)]
-[SimpleJob(iterationCount: 30)]
-public class SmallCollection_CustomValueTypeKey_Create
+[SimpleJob(iterationCount: 25)]
+public class SmallCollection_CustomValueTypeKey_Create : BenchmarkBase
 {
-    [Params(2, 3, 4, 5, 6, 7, 8, 9, 10)]
+    [ParamsSource(nameof(GenerateSmall))]
     public int DictionarySize { get; set; }
     public record struct CustomKey(int A, int B);
     public record MyClass(CustomKey Id, int Sum);
