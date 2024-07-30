@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmark.Benchmarks.OrdinalString_HashingComparision-20240729-203700</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3958/23H2/2023Update/SunValley3)
+AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.203
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-BYWNDI : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>IterationCount=25  
+</code></pre>
+
+<table>
+<thead><tr><th>Method    </th><th>DictionarySize</th><th>Mean     </th><th>Error  </th><th>StdDev </th><th>Median   </th><th>Ratio</th><th>RatioSD</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>Dictionary</td><td>10</td><td>313.92 ns</td><td>3.695 ns</td><td>4.805 ns</td><td>313.74 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>10</td><td>36.34 ns</td><td>0.983 ns</td><td>1.312 ns</td><td>36.26 ns</td><td>-88%</td><td>3.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>19</td><td>578.60 ns</td><td>11.537 ns</td><td>13.734 ns</td><td>575.05 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>19</td><td>72.34 ns</td><td>1.846 ns</td><td>2.464 ns</td><td>71.99 ns</td><td>-88%</td><td>4.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>28</td><td>842.51 ns</td><td>16.347 ns</td><td>21.822 ns</td><td>833.15 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>28</td><td>100.55 ns</td><td>2.278 ns</td><td>2.963 ns</td><td>100.30 ns</td><td>-88%</td><td>4.2%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>37</td><td>1,136.03 ns</td><td>28.080 ns</td><td>37.486 ns</td><td>1,128.79 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>37</td><td>131.55 ns</td><td>4.233 ns</td><td>5.651 ns</td><td>130.59 ns</td><td>-88%</td><td>4.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>46</td><td>1,354.73 ns</td><td>19.578 ns</td><td>24.044 ns</td><td>1,346.51 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>46</td><td>153.31 ns</td><td>2.982 ns</td><td>3.981 ns</td><td>151.74 ns</td><td>-89%</td><td>3.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>55</td><td>1,649.81 ns</td><td>37.635 ns</td><td>50.241 ns</td><td>1,625.45 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>55</td><td>203.58 ns</td><td>5.113 ns</td><td>6.826 ns</td><td>203.34 ns</td><td>-88%</td><td>5.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>64</td><td>1,882.05 ns</td><td>27.604 ns</td><td>34.910 ns</td><td>1,863.87 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>64</td><td>211.42 ns</td><td>4.637 ns</td><td>6.191 ns</td><td>208.56 ns</td><td>-89%</td><td>3.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>73</td><td>2,166.99 ns</td><td>44.927 ns</td><td>58.418 ns</td><td>2,138.67 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>73</td><td>267.70 ns</td><td>7.418 ns</td><td>9.902 ns</td><td>262.93 ns</td><td>-88%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>82</td><td>2,419.98 ns</td><td>44.700 ns</td><td>58.123 ns</td><td>2,393.28 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>82</td><td>293.18 ns</td><td>4.210 ns</td><td>5.325 ns</td><td>290.29 ns</td><td>-88%</td><td>3.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>91</td><td>2,755.47 ns</td><td>99.826 ns</td><td>129.802 ns</td><td>2,683.17 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>91</td><td>331.45 ns</td><td>10.419 ns</td><td>13.909 ns</td><td>323.16 ns</td><td>-88%</td><td>5.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>100</td><td>2,946.74 ns</td><td>35.171 ns</td><td>44.480 ns</td><td>2,932.59 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>100</td><td>372.54 ns</td><td>11.116 ns</td><td>14.839 ns</td><td>373.42 ns</td><td>-87%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>136</td><td>4,034.10 ns</td><td>75.449 ns</td><td>98.106 ns</td><td>3,997.78 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>136</td><td>496.81 ns</td><td>13.481 ns</td><td>17.997 ns</td><td>488.39 ns</td><td>-88%</td><td>3.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>172</td><td>5,099.16 ns</td><td>90.450 ns</td><td>120.748 ns</td><td>5,097.10 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>172</td><td>624.31 ns</td><td>17.345 ns</td><td>23.155 ns</td><td>618.11 ns</td><td>-88%</td><td>3.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>208</td><td>6,099.38 ns</td><td>84.535 ns</td><td>100.633 ns</td><td>6,072.56 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>208</td><td>754.92 ns</td><td>22.550 ns</td><td>30.103 ns</td><td>742.35 ns</td><td>-88%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>244</td><td>7,360.02 ns</td><td>184.362 ns</td><td>246.118 ns</td><td>7,322.69 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>244</td><td>871.19 ns</td><td>18.526 ns</td><td>24.731 ns</td><td>864.13 ns</td><td>-88%</td><td>4.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>280</td><td>8,386.24 ns</td><td>224.306 ns</td><td>299.443 ns</td><td>8,197.05 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>280</td><td>989.05 ns</td><td>13.724 ns</td><td>16.854 ns</td><td>982.61 ns</td><td>-88%</td><td>4.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>316</td><td>9,371.68 ns</td><td>143.150 ns</td><td>175.801 ns</td><td>9,329.63 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>316</td><td>1,170.87 ns</td><td>34.504 ns</td><td>46.062 ns</td><td>1,179.77 ns</td><td>-87%</td><td>4.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>352</td><td>10,761.00 ns</td><td>272.261 ns</td><td>363.461 ns</td><td>10,815.30 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>352</td><td>1,229.85 ns</td><td>8.245 ns</td><td>10.126 ns</td><td>1,225.39 ns</td><td>-89%</td><td>3.7%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>388</td><td>11,625.70 ns</td><td>282.983 ns</td><td>377.774 ns</td><td>11,425.46 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>388</td><td>1,405.21 ns</td><td>37.944 ns</td><td>50.654 ns</td><td>1,394.75 ns</td><td>-88%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>424</td><td>12,496.11 ns</td><td>152.610 ns</td><td>193.002 ns</td><td>12,431.59 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>424</td><td>1,519.88 ns</td><td>41.685 ns</td><td>54.202 ns</td><td>1,498.78 ns</td><td>-88%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>460</td><td>14,066.95 ns</td><td>299.270 ns</td><td>399.517 ns</td><td>14,010.62 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>460</td><td>1,659.17 ns</td><td>46.468 ns</td><td>62.033 ns</td><td>1,635.56 ns</td><td>-88%</td><td>4.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>496</td><td>14,532.17 ns</td><td>126.643 ns</td><td>155.529 ns</td><td>14,436.98 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>496</td><td>1,776.62 ns</td><td>40.869 ns</td><td>54.559 ns</td><td>1,750.41 ns</td><td>-88%</td><td>3.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>532</td><td>15,845.02 ns</td><td>322.922 ns</td><td>431.092 ns</td><td>15,648.99 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>532</td><td>1,918.15 ns</td><td>48.384 ns</td><td>64.591 ns</td><td>1,892.11 ns</td><td>-88%</td><td>4.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>568</td><td>17,621.28 ns</td><td>441.440 ns</td><td>589.310 ns</td><td>17,561.21 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>568</td><td>2,019.89 ns</td><td>41.072 ns</td><td>51.943 ns</td><td>2,000.33 ns</td><td>-89%</td><td>3.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>604</td><td>18,027.21 ns</td><td>434.177 ns</td><td>564.552 ns</td><td>17,857.66 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>604</td><td>1,797.09 ns</td><td>52.512 ns</td><td>70.102 ns</td><td>1,772.68 ns</td><td>-90%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>640</td><td>19,625.22 ns</td><td>561.271 ns</td><td>749.280 ns</td><td>19,798.84 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>640</td><td>2,336.91 ns</td><td>67.212 ns</td><td>89.726 ns</td><td>2,311.98 ns</td><td>-88%</td><td>5.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>676</td><td>20,654.04 ns</td><td>472.116 ns</td><td>630.261 ns</td><td>20,578.07 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>676</td><td>2,051.22 ns</td><td>41.605 ns</td><td>54.098 ns</td><td>2,054.74 ns</td><td>-90%</td><td>4.2%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>712</td><td>21,947.30 ns</td><td>492.295 ns</td><td>657.200 ns</td><td>22,007.15 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>712</td><td>2,169.86 ns</td><td>64.893 ns</td><td>86.631 ns</td><td>2,181.71 ns</td><td>-90%</td><td>4.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>748</td><td>22,433.91 ns</td><td>568.777 ns</td><td>759.301 ns</td><td>22,095.90 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>748</td><td>2,239.29 ns</td><td>58.183 ns</td><td>77.673 ns</td><td>2,246.00 ns</td><td>-90%</td><td>5.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>784</td><td>23,464.24 ns</td><td>535.083 ns</td><td>714.320 ns</td><td>23,133.70 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>784</td><td>2,349.06 ns</td><td>60.314 ns</td><td>80.517 ns</td><td>2,336.86 ns</td><td>-90%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>820</td><td>24,862.44 ns</td><td>641.324 ns</td><td>856.149 ns</td><td>24,593.94 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>820</td><td>2,488.13 ns</td><td>67.502 ns</td><td>90.113 ns</td><td>2,534.78 ns</td><td>-90%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>856</td><td>25,934.76 ns</td><td>566.501 ns</td><td>756.263 ns</td><td>25,998.14 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>856</td><td>2,564.41 ns</td><td>58.522 ns</td><td>78.126 ns</td><td>2,537.10 ns</td><td>-90%</td><td>3.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>892</td><td>26,579.96 ns</td><td>532.840 ns</td><td>692.843 ns</td><td>26,255.81 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>892</td><td>2,686.54 ns</td><td>70.448 ns</td><td>94.046 ns</td><td>2,689.92 ns</td><td>-90%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>928</td><td>27,206.17 ns</td><td>168.196 ns</td><td>193.695 ns</td><td>27,138.17 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>928</td><td>2,799.39 ns</td><td>78.589 ns</td><td>104.914 ns</td><td>2,777.35 ns</td><td>-90%</td><td>3.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>964</td><td>28,299.27 ns</td><td>224.184 ns</td><td>291.502 ns</td><td>28,225.75 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>964</td><td>2,907.42 ns</td><td>92.671 ns</td><td>123.713 ns</td><td>2,908.36 ns</td><td>-90%</td><td>4.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>1000</td><td>30,178.97 ns</td><td>725.332 ns</td><td>968.298 ns</td><td>30,014.54 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>1000</td><td>2,925.49 ns</td><td>54.578 ns</td><td>69.024 ns</td><td>2,890.31 ns</td><td>-90%</td><td>4.2%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>1360</td><td>40,853.29 ns</td><td>1,245.335 ns</td><td>1,662.487 ns</td><td>39,904.33 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>1360</td><td>4,093.69 ns</td><td>135.900 ns</td><td>181.422 ns</td><td>4,016.18 ns</td><td>-90%</td><td>4.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>1720</td><td>51,045.63 ns</td><td>1,012.263 ns</td><td>1,316.228 ns</td><td>50,416.24 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>1720</td><td>5,202.98 ns</td><td>147.552 ns</td><td>196.978 ns</td><td>5,278.71 ns</td><td>-90%</td><td>4.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>2080</td><td>63,501.95 ns</td><td>1,755.958 ns</td><td>2,344.153 ns</td><td>63,744.66 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>2080</td><td>6,034.08 ns</td><td>68.500 ns</td><td>81.544 ns</td><td>6,000.97 ns</td><td>-90%</td><td>3.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>2440</td><td>72,074.06 ns</td><td>765.024 ns</td><td>881.003 ns</td><td>71,921.89 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>2440</td><td>7,170.66 ns</td><td>179.220 ns</td><td>239.253 ns</td><td>7,084.82 ns</td><td>-90%</td><td>3.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>2800</td><td>83,924.74 ns</td><td>1,998.669 ns</td><td>2,668.166 ns</td><td>82,666.80 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>2800</td><td>8,428.79 ns</td><td>249.898 ns</td><td>333.607 ns</td><td>8,507.87 ns</td><td>-90%</td><td>3.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>3160</td><td>92,452.28 ns</td><td>521.767 ns</td><td>579.943 ns</td><td>92,145.83 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>3160</td><td>9,559.81 ns</td><td>311.295 ns</td><td>415.569 ns</td><td>9,689.39 ns</td><td>-90%</td><td>4.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>3520</td><td>106,770.91 ns</td><td>2,509.261 ns</td><td>3,349.791 ns</td><td>107,067.03 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>3520</td><td>10,461.72 ns</td><td>298.446 ns</td><td>398.416 ns</td><td>10,284.56 ns</td><td>-90%</td><td>4.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>3880</td><td>115,183.66 ns</td><td>1,993.187 ns</td><td>2,591.706 ns</td><td>114,165.65 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>3880</td><td>11,641.68 ns</td><td>347.985 ns</td><td>464.550 ns</td><td>11,643.90 ns</td><td>-90%</td><td>4.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>4240</td><td>130,542.90 ns</td><td>3,806.160 ns</td><td>5,081.114 ns</td><td>131,044.43 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>4240</td><td>12,561.86 ns</td><td>335.703 ns</td><td>436.509 ns</td><td>12,479.89 ns</td><td>-90%</td><td>5.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>4600</td><td>138,545.81 ns</td><td>2,272.433 ns</td><td>2,954.805 ns</td><td>138,533.30 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>4600</td><td>13,822.02 ns</td><td>349.910 ns</td><td>467.120 ns</td><td>13,854.10 ns</td><td>-90%</td><td>3.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>4960</td><td>148,005.50 ns</td><td>3,028.140 ns</td><td>3,937.438 ns</td><td>146,686.96 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>4960</td><td>14,441.22 ns</td><td>221.748 ns</td><td>263.976 ns</td><td>14,364.71 ns</td><td>-90%</td><td>3.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>5320</td><td>155,934.08 ns</td><td>1,167.935 ns</td><td>1,434.330 ns</td><td>155,302.53 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>5320</td><td>16,435.33 ns</td><td>436.676 ns</td><td>582.950 ns</td><td>16,466.95 ns</td><td>-89%</td><td>3.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>5680</td><td>170,543.59 ns</td><td>4,810.771 ns</td><td>6,422.241 ns</td><td>167,456.49 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>5680</td><td>17,006.03 ns</td><td>263.458 ns</td><td>323.551 ns</td><td>16,932.56 ns</td><td>-90%</td><td>3.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>6040</td><td>180,752.98 ns</td><td>3,548.989 ns</td><td>4,737.798 ns</td><td>178,464.05 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>6040</td><td>18,834.29 ns</td><td>432.019 ns</td><td>576.733 ns</td><td>18,829.84 ns</td><td>-90%</td><td>3.6%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>6400</td><td>187,564.93 ns</td><td>880.587 ns</td><td>1,048.276 ns</td><td>187,289.75 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>6400</td><td>19,105.35 ns</td><td>246.362 ns</td><td>302.555 ns</td><td>19,005.48 ns</td><td>-90%</td><td>1.9%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>6760</td><td>205,200.27 ns</td><td>5,636.442 ns</td><td>7,524.488 ns</td><td>203,249.13 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>6760</td><td>21,989.21 ns</td><td>1,611.272 ns</td><td>2,151.002 ns</td><td>21,060.91 ns</td><td>-89%</td><td>11.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>7120</td><td>212,524.01 ns</td><td>5,164.105 ns</td><td>6,893.932 ns</td><td>208,437.77 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>7120</td><td>21,560.11 ns</td><td>430.029 ns</td><td>559.159 ns</td><td>21,283.61 ns</td><td>-90%</td><td>4.2%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>7480</td><td>221,684.40 ns</td><td>3,474.401 ns</td><td>4,394.005 ns</td><td>219,720.03 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>7480</td><td>22,320.66 ns</td><td>129.810 ns</td><td>168.790 ns</td><td>22,318.66 ns</td><td>-90%</td><td>1.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>7840</td><td>232,797.95 ns</td><td>4,659.627 ns</td><td>5,892.936 ns</td><td>229,701.87 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>7840</td><td>37,751.96 ns</td><td>1,188.443 ns</td><td>1,586.537 ns</td><td>37,682.74 ns</td><td>-84%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>8200</td><td>242,733.06 ns</td><td>2,240.841 ns</td><td>2,490.689 ns</td><td>242,354.61 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>8200</td><td>39,603.12 ns</td><td>1,123.529 ns</td><td>1,499.879 ns</td><td>39,885.48 ns</td><td>-84%</td><td>3.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>8560</td><td>252,305.05 ns</td><td>2,176.482 ns</td><td>2,672.915 ns</td><td>251,639.23 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>8560</td><td>41,304.41 ns</td><td>861.353 ns</td><td>1,089.336 ns</td><td>41,409.73 ns</td><td>-84%</td><td>2.6%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>8920</td><td>271,047.84 ns</td><td>6,570.713 ns</td><td>8,771.712 ns</td><td>267,163.06 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>8920</td><td>43,520.59 ns</td><td>987.208 ns</td><td>1,317.894 ns</td><td>43,810.74 ns</td><td>-84%</td><td>3.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>9280</td><td>287,052.80 ns</td><td>8,745.174 ns</td><td>11,674.556 ns</td><td>285,779.74 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>9280</td><td>45,049.04 ns</td><td>1,123.031 ns</td><td>1,499.214 ns</td><td>45,226.25 ns</td><td>-84%</td><td>4.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>9640</td><td>298,658.44 ns</td><td>7,773.726 ns</td><td>10,377.701 ns</td><td>297,738.43 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>9640</td><td>46,698.33 ns</td><td>1,253.444 ns</td><td>1,673.312 ns</td><td>46,559.15 ns</td><td>-84%</td><td>5.5%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>10000</td><td>302,366.39 ns</td><td>6,249.451 ns</td><td>8,342.837 ns</td><td>301,403.27 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>10000</td><td>48,926.87 ns</td><td>1,107.269 ns</td><td>1,478.172 ns</td><td>49,065.51 ns</td><td>-84%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>13600</td><td>408,842.18 ns</td><td>9,311.935 ns</td><td>12,431.166 ns</td><td>407,821.53 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>13600</td><td>66,557.30 ns</td><td>1,941.165 ns</td><td>2,591.400 ns</td><td>66,386.14 ns</td><td>-84%</td><td>5.3%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>17200</td><td>533,032.10 ns</td><td>14,722.405 ns</td><td>19,653.988 ns</td><td>537,471.88 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>17200</td><td>101,383.40 ns</td><td>2,721.906 ns</td><td>3,539.246 ns</td><td>100,618.68 ns</td><td>-81%</td><td>5.4%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>20800</td><td>825,411.60 ns</td><td>20,929.463 ns</td><td>27,214.214 ns</td><td>825,482.32 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>20800</td><td>117,461.66 ns</td><td>3,056.039 ns</td><td>4,079.725 ns</td><td>116,854.89 ns</td><td>-86%</td><td>5.1%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>24400</td><td>786,202.02 ns</td><td>34,106.727 ns</td><td>45,531.501 ns</td><td>794,668.65 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>24400</td><td>138,904.31 ns</td><td>4,957.506 ns</td><td>6,446.158 ns</td><td>137,509.24 ns</td><td>-82%</td><td>6.6%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>28000</td><td>912,171.08 ns</td><td>17,420.617 ns</td><td>21,394.083 ns</td><td>907,076.66 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>28000</td><td>168,917.60 ns</td><td>3,597.348 ns</td><td>4,802.356 ns</td><td>166,454.50 ns</td><td>-81%</td><td>4.0%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>31600</td><td>1,049,005.22 ns</td><td>31,288.274 ns</td><td>41,768.947 ns</td><td>1,026,477.34 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>31600</td><td>195,350.50 ns</td><td>4,886.531 ns</td><td>6,353.871 ns</td><td>195,263.10 ns</td><td>-81%</td><td>5.0%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>35200</td><td>1,069,473.31 ns</td><td>29,008.680 ns</td><td>37,719.478 ns</td><td>1,065,259.08 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>35200</td><td>174,418.94 ns</td><td>1,572.395 ns</td><td>1,988.576 ns</td><td>174,524.99 ns</td><td>-84%</td><td>3.9%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>38800</td><td>1,180,302.91 ns</td><td>30,986.876 ns</td><td>41,366.590 ns</td><td>1,172,768.75 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>38800</td><td>200,925.34 ns</td><td>1,827.553 ns</td><td>2,376.336 ns</td><td>200,605.53 ns</td><td>-83%</td><td>3.3%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>42400</td><td>1,246,248.87 ns</td><td>9,629.101 ns</td><td>11,825.401 ns</td><td>1,239,738.38 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>42400</td><td>255,811.24 ns</td><td>2,075.446 ns</td><td>2,624.774 ns</td><td>255,701.86 ns</td><td>-79%</td><td>1.4%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>46000</td><td>1,396,572.27 ns</td><td>34,680.687 ns</td><td>46,297.721 ns</td><td>1,374,624.61 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>46000</td><td>292,096.05 ns</td><td>6,037.108 ns</td><td>8,059.366 ns</td><td>291,661.67 ns</td><td>-79%</td><td>3.8%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>49600</td><td>1,497,963.06 ns</td><td>24,866.124 ns</td><td>31,447.685 ns</td><td>1,485,038.96 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>49600</td><td>314,578.87 ns</td><td>3,336.907 ns</td><td>4,098.022 ns</td><td>314,550.39 ns</td><td>-79%</td><td>2.6%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>53200</td><td>1,622,626.57 ns</td><td>32,683.420 ns</td><td>43,631.427 ns</td><td>1,600,358.30 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>53200</td><td>345,563.36 ns</td><td>2,910.167 ns</td><td>3,884.989 ns</td><td>344,959.57 ns</td><td>-79%</td><td>2.6%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>56800</td><td>1,709,202.51 ns</td><td>16,726.554 ns</td><td>21,153.735 ns</td><td>1,700,708.79 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>56800</td><td>378,557.30 ns</td><td>2,083.445 ns</td><td>2,709.067 ns</td><td>377,963.60 ns</td><td>-78%</td><td>1.5%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>60400</td><td>1,813,859.96 ns</td><td>16,097.214 ns</td><td>20,357.822 ns</td><td>1,808,070.90 ns</td><td>baseline</td><td></td><td>1 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>60400</td><td>410,773.54 ns</td><td>5,159.873 ns</td><td>6,336.788 ns</td><td>409,533.11 ns</td><td>-77%</td><td>1.4%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>64000</td><td>1,929,879.40 ns</td><td>14,658.040 ns</td><td>18,001.389 ns</td><td>1,920,486.13 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>64000</td><td>437,126.96 ns</td><td>1,211.494 ns</td><td>1,575.284 ns</td><td>437,231.42 ns</td><td>-77%</td><td>1.1%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>67600</td><td>2,122,576.15 ns</td><td>7,362.357 ns</td><td>9,041.636 ns</td><td>2,118,460.74 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>67600</td><td>559,139.10 ns</td><td>45,607.192 ns</td><td>59,302.233 ns</td><td>532,408.15 ns</td><td>-74%</td><td>11.0%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>71200</td><td>2,222,192.44 ns</td><td>7,179.329 ns</td><td>8,267.726 ns</td><td>2,219,674.80 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>71200</td><td>546,911.13 ns</td><td>3,984.534 ns</td><td>4,893.365 ns</td><td>545,392.72 ns</td><td>-75%</td><td>1.1%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>74800</td><td>2,323,331.71 ns</td><td>11,380.845 ns</td><td>14,798.314 ns</td><td>2,318,620.70 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>74800</td><td>574,379.29 ns</td><td>5,189.952 ns</td><td>6,748.404 ns</td><td>573,130.03 ns</td><td>-75%</td><td>1.4%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>78400</td><td>2,420,016.73 ns</td><td>11,208.724 ns</td><td>13,765.319 ns</td><td>2,417,433.01 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>78400</td><td>599,767.10 ns</td><td>3,756.057 ns</td><td>4,883.936 ns</td><td>599,487.55 ns</td><td>-75%</td><td>1.0%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>82000</td><td>2,528,166.02 ns</td><td>10,007.024 ns</td><td>12,289.524 ns</td><td>2,525,303.52 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>82000</td><td>626,951.45 ns</td><td>3,794.027 ns</td><td>5,064.917 ns</td><td>627,717.87 ns</td><td>-75%</td><td>1.0%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>85600</td><td>2,660,010.12 ns</td><td>10,617.503 ns</td><td>13,039.247 ns</td><td>2,657,293.36 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>85600</td><td>657,718.78 ns</td><td>5,147.840 ns</td><td>6,510.369 ns</td><td>656,711.43 ns</td><td>-75%</td><td>1.0%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>89200</td><td>2,756,435.04 ns</td><td>15,051.097 ns</td><td>19,570.677 ns</td><td>2,747,083.98 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>89200</td><td>689,052.52 ns</td><td>7,219.725 ns</td><td>9,387.682 ns</td><td>684,996.92 ns</td><td>-75%</td><td>1.3%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>92800</td><td>2,852,379.07 ns</td><td>56,049.767 ns</td><td>74,824.829 ns</td><td>2,848,803.32 ns</td><td>baseline</td><td></td><td>-</td><td>NA</td>
+</tr><tr><td>FrozenDictionary</td><td>92800</td><td>630,710.98 ns</td><td>8,548.380 ns</td><td>11,411.842 ns</td><td>634,774.02 ns</td><td>-78%</td><td>2.8%</td><td>-</td><td>NA</td>
+</tr><tr><td>Dictionary</td><td>96400</td><td>2,925,306.05 ns</td><td>58,266.389 ns</td><td>77,783.956 ns</td><td>2,885,422.27 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>96400</td><td>662,932.89 ns</td><td>8,180.497 ns</td><td>10,636.957 ns</td><td>665,278.37 ns</td><td>-77%</td><td>2.8%</td><td>-</td><td>-100%</td>
+</tr><tr><td>Dictionary</td><td>100000</td><td>3,113,998.23 ns</td><td>73,613.787 ns</td><td>98,272.292 ns</td><td>3,125,926.56 ns</td><td>baseline</td><td></td><td>2 B</td><td></td>
+</tr><tr><td>FrozenDictionary</td><td>100000</td><td>689,569.51 ns</td><td>7,403.916 ns</td><td>9,884.015 ns</td><td>691,058.30 ns</td><td>-78%</td><td>3.7%</td><td>-</td><td>-100%</td>
+</tr></tbody></table>
+</body>
+</html>
