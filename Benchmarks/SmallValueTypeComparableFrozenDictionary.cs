@@ -8,34 +8,26 @@ namespace Benchmark.Benchmarks;
 [MemoryDiagnoser]
 // [DisassemblyDiagnoser(printSource: true, maxDepth: 2, exportCombinedDisassemblyReport: true)]
 [SimpleJob(iterationCount: 25)]
-public class SmallCollection_Int32Key_Get : BenchmarkBase
+public class SmallValueTypeComparableFrozenDictionary : BenchmarkBase
 {
     [ParamsSource(nameof(GenerateSmall))]
     public int DictionarySize { get; set; }
-    public record MyClass(int Id, int Sum);
-    private Dictionary<int, MyClass> _dictionary = default!;
-    private FrozenDictionary<int, MyClass> _frozenDictionary = default!;
+    public int[] collection = [];
+    private Dictionary<int, int> _dictionary = default!;
+    private FrozenDictionary<int, int> _frozenDictionary = default!;
 
     [GlobalSetup]
     public void Initialize()
     {
-        var collectionForDictionary = new MyClass[DictionarySize];
+        collection = new int[DictionarySize];
 
         for (int i = 0; i < DictionarySize; i++)
         {
-            collectionForDictionary[i] = new(i, i + i);
+            collection[i] = i; 
         }
 
-        _dictionary = collectionForDictionary.ToDictionary(x => x.Id);
-
-        var collectionForFrozenDictionary = new MyClass[DictionarySize];
-
-        for (int i = 0; i < DictionarySize; i++)
-        {
-            collectionForFrozenDictionary[i] = new(i, i + i);
-        }
-
-        _frozenDictionary = collectionForFrozenDictionary.ToFrozenDictionary(x => x.Id);
+        _dictionary = collection.ToDictionary(x => x, x => x * 2);
+        _frozenDictionary = collection.ToFrozenDictionary(x => x, x => x * 2);
 
         if (_frozenDictionary.GetType().Name != "SmallValueTypeComparableFrozenDictionary`2")
         {
@@ -47,9 +39,9 @@ public class SmallCollection_Int32Key_Get : BenchmarkBase
     public int Dictionary()
     {
         var sum = 0;
-        for (int i = 0; i < DictionarySize; i++)
+        for (int i = 0; i < collection.Length; i++)
         {
-            sum += _dictionary[i].Sum;
+            sum += _dictionary[collection[i]];
         }
         return sum;
     }
@@ -58,9 +50,9 @@ public class SmallCollection_Int32Key_Get : BenchmarkBase
     public int FrozenDictionary()
     {
         var sum = 0;
-        for (int i = 0; i < DictionarySize; i++)
+        for (int i = 0; i < collection.Length; i++)
         {
-            sum += _frozenDictionary[i].Sum;
+            sum += _frozenDictionary[collection[i]];
         }
         return sum;
     }

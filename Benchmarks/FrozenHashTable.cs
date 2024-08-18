@@ -110,7 +110,8 @@ public readonly struct FrozenHashTable
         // and store at the bucket entry corresponding to the hashcode item the entry for that
         // item, which includes a copy of the hash code and the current bucket start, which
         // is then replaced by this entry as it's pushed into the bucket list.
-        for (int index = 0; index < hashCodes.Length; index++)
+        System.Console.WriteLine();
+        for (int index = 0; index < hashCodes.Length; index++)                
         {
             int hashCode = hashCodes[index];
             int bucketNum = (int)HashHelpers.FastMod((uint)hashCode, (uint)bucketStarts.Length, fastModMultiplier);
@@ -118,6 +119,13 @@ public readonly struct FrozenHashTable
             ref int bucketStart = ref bucketStarts[bucketNum];
             nexts[index] = bucketStart;
             bucketStart = index;
+
+            Console.WriteLine("hash: {0}, bucketNum: {1}", hashCode, bucketNum);
+
+            // Console.WriteLine(string.Join(" ", nexts.ToArray()));
+            // Console.WriteLine(string.Join(" ", bucketStarts.ToArray()));
+            // System.Console.WriteLine();
+            // Console.WriteLine("i: {0}, hash: {1}, bucketNum: {2}, bucketStart: {3}", index, hashCode, bucketNum, bucketStart);
         }
 
         // Write out the hashcodes and buckets arrays to be used by the FrozenHashtable instance.
@@ -129,6 +137,7 @@ public readonly struct FrozenHashTable
         var hashtableHashcodes = new int[hashCodes.Length];
         var hashtableBuckets = new Bucket[bucketStarts.Length];
         int count = 0;
+        System.Console.WriteLine();
         for (int bucketNum = 0; bucketNum < hashtableBuckets.Length; bucketNum++)
         {
             int bucketStart = bucketStarts[bucketNum];
@@ -152,7 +161,12 @@ public readonly struct FrozenHashTable
                 index = nexts[index];
             }
 
+
             hashtableBuckets[bucketNum] = new Bucket(bucketStart, bucketCount);
+            
+            System.Console.WriteLine(string.Join(" ", hashtableHashcodes));
+            System.Console.WriteLine(string.Join(", ", hashtableBuckets.Select(x => $"{x.StartIndex} - {x.EndIndex}")));
+            System.Console.WriteLine();
         }
 
         ArrayPool<int>.Shared.Return(arrayPoolBuckets);
@@ -206,7 +220,7 @@ public readonly struct FrozenHashTable
 
         // Based on our observations, in more than 99.5% of cases the number of buckets that meets our criteria is
         // at least twice as big as the number of unique hash codes.
-        int minNumBuckets = uniqueCodesCount * 2;
+        int minNumBuckets = uniqueCodesCount;
 
         // In our precomputed primes table, find the index of the smallest prime that's at least as large as our number of
         // hash codes. If there are more codes than in our precomputed primes table, which accommodates millions of values,
@@ -240,8 +254,6 @@ public readonly struct FrozenHashTable
         {
             maxNumBuckets = primes[maxPrimeIndexExclusive - 1];
         }
-
-        Console.WriteLine($"minNumBuckets: {minNumBuckets}, maxNumBuckets: {maxNumBuckets}");
 
         const int BitsPerInt32 = 32;
         int[] seenBuckets = ArrayPool<int>.Shared.Rent((maxNumBuckets / BitsPerInt32) + 1);
@@ -284,8 +296,6 @@ public readonly struct FrozenHashTable
                 }
             }
 
-            Console.WriteLine($"numBuckets: {numBuckets}, numCollisions: {numCollisions}, bestNumCollisions: {bestNumCollisions}, collisionRate: {numCollisions / (double)uniqueCodesCount}");
-
             // If this evaluation resulted in fewer collisions, use it as the best instead.
             // And if it's below our collision threshold, we're done.
             if (numCollisions < bestNumCollisions)
@@ -309,14 +319,12 @@ public readonly struct FrozenHashTable
         bool IsBucketFirstVisit(int code)
         {
             uint bucketNum = (uint)code % (uint)numBuckets;
-            Console.WriteLine($"\tcode: {code}, code: {(uint)code}, numBuckets, {numBuckets}, bucketNum: {bucketNum}, bucket Ind: {bucketNum / BitsPerInt32}, collisions: {numCollisions}");
             
             if ((seenBuckets[bucketNum / BitsPerInt32] & (1 << (int)bucketNum)) != 0)
             {
                 numCollisions++;
                 if (numCollisions >= bestNumCollisions)
                 {
-                    Console.WriteLine("\thit the previously known best number of collisions");
                     // If we've already hit the previously known best number of collisions,
                     // there's no point in continuing as worst case we'd just use that.
                     return false;

@@ -10,6 +10,14 @@ public abstract class BenchmarkBase
         }
     }
 
+    public static IEnumerable<int> GenerateSmall1to4()
+    {
+        for (int i = 1; i <= 4; i++)
+        {
+            yield return i;
+        }
+    }
+
     public static IEnumerable<int> GenerateLarge()
     {
         yield return 11;
