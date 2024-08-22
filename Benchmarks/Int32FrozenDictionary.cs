@@ -6,7 +6,7 @@ namespace Benchmark.Benchmarks;
 [CategoriesColumn]
 // [DisassemblyDiagnoser(printSource: true, maxDepth: 2, exportCombinedDisassemblyReport: true)]
 [SimpleJob(iterationCount: 30)]
-public class LargeCollection_Int32Key_Get : BenchmarkBase
+public class Int32FrozenDictionary : BenchmarkBase
 {
     [ParamsSource(nameof(GenerateLarge))]
     public int DictionarySize { get; set; }
